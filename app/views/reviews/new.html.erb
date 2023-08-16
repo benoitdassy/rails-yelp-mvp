@@ -1,0 +1,10 @@
+<div class="mx-auto w-50 m-3">
+  <div class="w-auto">
+    <h1>New review for <%= @restaurant.name %></h1>
+    <%= simple_form_for [@restaurant, @review] do |f| %>
+      <%= f.input :rating, collection: 0..5 %>
+      <%= f.input :content%>
+      <%= f.submit "Create Review", class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>

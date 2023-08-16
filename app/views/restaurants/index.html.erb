@@ -1,7 +1,13 @@
+
+<div class="mx-auto w-50 m-3">
+
 <h1>Restaurants</h1>
-
+<ul class="list-group">
 <% @restaurants.each do |restaurant| %>
-  <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+  <li class="list-group-item"><%= link_to restaurant.name, restaurant_path(restaurant), class: "text-decoration-none stretched-link text-primary" %></li>
 <% end %>
-
-<%= link_to "CREATE NEW RESTAURANT", new_restaurant_path %>
+</ul>
+  <div class="d-flex justify-content-center">
+    <%= link_to "Create a new restaurant", new_restaurant_path, class: "btn btn-success rounded mt-3 text-center" %>
+  </div>
+</div>

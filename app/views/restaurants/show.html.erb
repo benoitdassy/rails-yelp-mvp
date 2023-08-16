@@ -1,6 +1,25 @@
-<h1><%= @restaurant.name %></h1>
-<p>Category : <%= @restaurant.category %></p>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
+<div class="mx-auto w-50 m-3">
+  <div class="card">
+    <div class="card-body">
+      <h1><%= @restaurant.name %></h1>
+      <p><strong>Category : <%= @restaurant.category.capitalize %></strong></p>
+      <p>🗺️ <%= @restaurant.address %></p>
+      <p>☎️ <%= @restaurant.phone_number %></p>
+    </div>
+  </div>
 
-<%= link_to "See all restaurants", restaurants_path %>
+  <h2 class="d-flex mt-5">
+  <strong>Reviews</strong>
+  <%= link_to "Add review + ", new_restaurant_review_path(@restaurant), class: "btn btn-primary mx-3" %>
+  </h2>
+  <div>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><img src="https://avatars.githubusercontent.com/u/139003401?v=4" alt="bg" class="rounded" width="30"> " <%= review.content %> " - ⭐️ : <%= review.rating %>/5</li>
+    <% end %>
+  </ul>
+</div>
+  <%= link_to (restaurants_path), class: "btn btn-outline-primary mt-3" do %>
+    <i class="fa-solid fa-arrow-left"></i> See all restaurants
+  <% end %>
+</div>
